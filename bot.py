@@ -6,8 +6,8 @@ import os
 bot = commands.Bot(command_prefix='!', intents=discord.Intents.default())
 
 # Your server details
-MC_IP = "your.playit.gg.link.or.ip"
-MC_PORT = 19132
+MC_IP = "147.185.221.212"
+MC_PORT = 25301
 
 def check_server():
     """Check if server is online"""

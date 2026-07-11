@@ -5,18 +5,17 @@ import os
 
 bot = commands.Bot(command_prefix='!', intents=discord.Intents.default())
 
-# Your server details
 MC_IP = "147.185.221.212"
 MC_PORT = 25301
 
 def check_server():
     """Check if server is online"""
     try:
-        sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
-        sock.settimeout(2)
-        sock.sendto(b'\x00' * 8, (MC_IP, MC_PORT))
-        sock.recvfrom(1024)
-        return True
+        sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+        sock.settimeout(3)
+        result = sock.connect_ex((MC_IP, MC_PORT))
+        sock.close()
+        return result == 0
     except:
         return False
 
@@ -33,7 +32,7 @@ async def server(ctx):
     else:
         embed = discord.Embed(title="🔴 Server OFFLINE", color=discord.Color.red())
     
-    embed.add_field(name="IP/Domain", value=MC_IP, inline=False)
+    embed.add_field(name="IP", value=MC_IP, inline=False)
     embed.add_field(name="Port", value=MC_PORT, inline=False)
     await ctx.send(embed=embed)
 

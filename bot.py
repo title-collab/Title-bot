@@ -1,12 +1,13 @@
 import discord
 from discord.ext import commands
 import socket
+import os
 
 bot = commands.Bot(command_prefix='!', intents=discord.Intents.default())
 
 # Your server details
-MC_IP = "your.playit.gg.link.or.ip"  # Like abc123.playit.gg or your IP
-MC_PORT = 19132  # Bedrock port
+MC_IP = "your.playit.gg.link.or.ip"
+MC_PORT = 19132
 
 def check_server():
     """Check if server is online"""
@@ -32,8 +33,8 @@ async def server(ctx):
     else:
         embed = discord.Embed(title="🔴 Server OFFLINE", color=discord.Color.red())
     
-    embed.add_field(name="147.185.221.212", value=MC_IP, inline=False)
-    embed.add_field(name="25301", value=MC_PORT, inline=False)
+    embed.add_field(name="IP/Domain", value=MC_IP, inline=False)
+    embed.add_field(name="Port", value=MC_PORT, inline=False)
     await ctx.send(embed=embed)
 
-bot.run(os.getenv("BOT_TOKEN"))  # Gets it from Railway, not the code
+bot.run(os.getenv("BOT_TOKEN"))

@@ -36,4 +36,4 @@ async def server(ctx):
     embed.add_field(name="25301", value=MC_PORT, inline=False)
     await ctx.send(embed=embed)
 
-bot.run("5d3880e2ffa57cf16a0e08a2ee19e5f3f822db4716ffd17bf5f8fad635d72383")
+bot.run("MTUyNTAwNjE4ODExNzIzMzY2NA.GRN3Go.TI85p9I_RtiwyVkHs9l4c2BO9R0itZ8IBj37aU")
